@@ -1,0 +1,210 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2020-12-31 20:57:33.898312",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "party_name",
+  "vahicle_no",
+  "by_hand",
+  "column_break_3",
+  "naming_series",
+  "date",
+  "time",
+  "edit_date",
+  "is_retrun",
+  "retrun_date",
+  "section_break_12",
+  "fatch_data",
+  "column_break_18",
+  "delivery_note",
+  "purchase_invoice",
+  "items_section",
+  "items",
+  "section_break_16",
+  "total_quantity",
+  "status",
+  "column_break_21",
+  "total_retrun_quantity",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": " ",
+   "fieldname": "type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Gate Pass Type",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_retrun",
+   "fieldtype": "Check",
+   "label": "Is Returnable"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Gate Pass",
+   "options": "\nINW-.YYYY.-.####\nOUTW-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Current Time"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gate Pass",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "edit_date",
+   "fieldtype": "Check",
+   "label": "Edit posting date and time"
+  },
+  {
+   "fieldname": "vahicle_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vahicle No"
+  },
+  {
+   "fieldname": "by_hand",
+   "fieldtype": "Data",
+   "label": "By Hand"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Party Name",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_retrun ==1",
+   "fieldname": "retrun_date",
+   "fieldtype": "Datetime",
+   "label": "Retrun Date"
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "columns": 10,
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Gate Pass Child",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "depends_on": "eval:doc.docstatus == 0",
+   "fieldname": "fatch_data",
+   "fieldtype": "Button",
+   "label": "FATCH ITEM DATA"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Outward'",
+   "fieldname": "delivery_note",
+   "fieldtype": "Link",
+   "label": "Delivery Note",
+   "options": "Delivery Note"
+  },
+  {
+   "depends_on": "eval:doc.type == 'Inward'",
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "label": "Purchase  Invoice",
+   "options": "Purchase Invoice"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_quantity",
+   "fieldtype": "Float",
+   "label": "Total Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_retrun_quantity",
+   "fieldtype": "Float",
+   "label": "Total Retrun Quantity",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled\nPartial Return\nReturn",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2021-02-05 16:54:41.051300",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Gate Pass",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "sync_on_migrate": 1
+}

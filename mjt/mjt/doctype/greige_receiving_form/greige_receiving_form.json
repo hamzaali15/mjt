@@ -1,0 +1,385 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2020-11-04 10:55:24.661932",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_code",
+  "customer_name",
+  "quality_code",
+  "quality_name",
+  "weave_types",
+  "naming_series",
+  "column_break_6",
+  "company",
+  "date",
+  "current_time",
+  "edit_date",
+  "purchase_order",
+  "loom_types",
+  "return_qty",
+  "reason",
+  "section_break_10",
+  "item",
+  "item_name",
+  "batch_no",
+  "uom",
+  "column_break_18",
+  "than",
+  "received_qty",
+  "short_length",
+  "net_received_meter",
+  "transporter_info_section",
+  "transporter",
+  "gst_transporter_id",
+  "driver",
+  "transport_receipt_no",
+  "vehicle_no",
+  "distance",
+  "column_break_32",
+  "mode_of_transport",
+  "driver_name",
+  "transport_receipt_date",
+  "gst_vehicle_type",
+  "remarks_section",
+  "remarks",
+  "amended_from",
+  "section_break_40",
+  "status",
+  "print_count",
+  "return_summary_section",
+  "return_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Name",
+   "options": "GRF.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer_code.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Read Only",
+   "label": "Customer Name"
+  },
+  {
+   "fieldname": "quality_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Quality Code",
+   "options": "PM Quality",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_time",
+   "fieldtype": "Time",
+   "label": "Current Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "quality_code.quality_name",
+   "fieldname": "quality_name",
+   "fieldtype": "Read Only",
+   "in_standard_filter": 1,
+   "label": "Quality Name"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Greige Receiving Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item",
+   "no_copy": 1,
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Read Only",
+   "label": "Item Name",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Batch No",
+   "no_copy": 1,
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "label": "Received Meter",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "than",
+   "fieldtype": "Float",
+   "label": "Than",
+   "no_copy": 1
+  },
+  {
+   "fetch_from": "item.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "no_copy": 1,
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "short_length",
+   "fieldtype": "Float",
+   "label": "Short Length",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Purchase Order",
+   "no_copy": 1,
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "net_received_meter",
+   "fieldtype": "Float",
+   "label": "Net Received Meter",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "edit_date",
+   "fieldtype": "Check",
+   "label": "Edit posting date and time",
+   "no_copy": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "transporter_info_section",
+   "fieldtype": "Section Break",
+   "label": "TRANSPORTER INFO"
+  },
+  {
+   "fieldname": "transporter",
+   "fieldtype": "Link",
+   "label": "Transporter",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "gst_transporter_id",
+   "fieldtype": "Data",
+   "label": "GST Transporter ID"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "transport_receipt_no",
+   "fieldtype": "Data",
+   "label": "Transport Receipt No"
+  },
+  {
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "default": "0",
+   "fieldname": "distance",
+   "fieldtype": "Float",
+   "label": "Distance (in km)"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mode_of_transport",
+   "fieldtype": "Select",
+   "label": "Mode of Transport",
+   "options": "\nRoad\nAir\nRail\nShip"
+  },
+  {
+   "fetch_from": "driver.full_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name"
+  },
+  {
+   "fieldname": "transport_receipt_date",
+   "fieldtype": "Date",
+   "label": "Transport Receipt Date"
+  },
+  {
+   "fieldname": "gst_vehicle_type",
+   "fieldtype": "Select",
+   "label": "GST Vehicle Type",
+   "options": "\nRegular\nOver Dimensional Cargo (ODC)"
+  },
+  {
+   "fieldname": "weave_types",
+   "fieldtype": "Select",
+   "label": "Weave Types",
+   "options": "\nPlain weave\nSatin weave\nTwill weave\nDobby\nJacquard\nMatt weave\nN/A"
+  },
+  {
+   "fieldname": "loom_types",
+   "fieldtype": "Select",
+   "label": "Loom Types",
+   "options": "\nAir jet loom\nShuttles loom\nPower loom\nN/A"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.status == \"Return\"",
+   "fieldname": "return_qty",
+   "fieldtype": "Float",
+   "label": "Return Qty",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_40",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nSubmitted\nCancelled\nReturn",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "1",
+   "fieldname": "print_count",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Print Count",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "return_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Return Summary"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "return_summary",
+   "fieldtype": "Table",
+   "label": "Retrun Summary",
+   "options": "Return History",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-04-24 19:58:37.502951",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Greige Receiving Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "batch_no",
+ "track_changes": 1,
+ "sync_on_migrate": 1
+}

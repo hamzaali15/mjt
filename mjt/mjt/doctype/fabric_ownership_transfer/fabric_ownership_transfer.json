@@ -1,0 +1,184 @@
+{
+    "autoname": "naming_series:",
+    "creation": "2020-12-15 15:26:21.528608",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+     "batch",
+     "item",
+     "quality_code",
+     "quality_name",
+     "column_break_2",
+     "company",
+     "naming_series",
+     "rate",
+     "business_unit",
+     "patry_detail_section",
+     "old_patry_code",
+     "old_party_name",
+     "column_break_7",
+     "new_party_code",
+     "new_party_name",
+     "section_break_11",
+     "amended_from",
+     "change_owner"
+    ],
+    "fields": [
+     {
+      "columns": 1,
+      "fieldname": "batch",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Batch",
+      "options": "Batch",
+      "reqd": 1
+     },
+     {
+      "fieldname": "column_break_2",
+      "fieldtype": "Column Break"
+     },
+     {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Name",
+      "options": "FOT-.YYYY.-.###"
+     },
+     {
+      "fieldname": "patry_detail_section",
+      "fieldtype": "Section Break",
+      "label": "Patry Detail"
+     },
+     {
+      "columns": 1,
+      "fetch_from": "batch.supplier",
+      "fieldname": "old_patry_code",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Old Party Code",
+      "options": "Supplier"
+     },
+     {
+      "fetch_from": "batch.party_name",
+      "fieldname": "old_party_name",
+      "fieldtype": "Data",
+      "label": "Old Patry Name",
+      "read_only": 1
+     },
+     {
+      "fieldname": "column_break_7",
+      "fieldtype": "Column Break"
+     },
+     {
+      "allow_on_submit": 1,
+      "columns": 1,
+      "fieldname": "new_party_code",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "New Party Code",
+      "options": "Supplier"
+     },
+     {
+      "allow_on_submit": 1,
+      "fetch_from": "new_party_code.supplier_name",
+      "fieldname": "new_party_name",
+      "fieldtype": "Data",
+      "label": "New Party Name",
+      "read_only": 1
+     },
+     {
+      "fetch_from": "batch.item",
+      "fieldname": "item",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "Item",
+      "options": "Item"
+     },
+     {
+      "allow_on_submit": 1,
+      "columns": 1,
+      "default": "0",
+      "fieldname": "change_owner",
+      "fieldtype": "Check",
+      "hidden": 1,
+      "in_filter": 1,
+      "in_list_view": 1,
+      "label": "Change_owner",
+      "no_copy": 1,
+      "read_only": 1
+     },
+     {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "no_copy": 1,
+      "options": "Fabric Ownership Transfer",
+      "print_hide": 1,
+      "read_only": 1
+     },
+     {
+      "fieldname": "section_break_11",
+      "fieldtype": "Section Break"
+     },
+     {
+      "fieldname": "rate",
+      "fieldtype": "Currency",
+      "label": "Rate",
+      "options": "Company:company:default_currency"
+     },
+     {
+      "allow_on_submit": 1,
+      "fieldname": "business_unit",
+      "fieldtype": "Link",
+      "label": "Business Unit",
+      "options": "Business Unit"
+     },
+     {
+      "allow_on_submit": 1,
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+     },
+     {
+      "fetch_from": "batch.quality_code",
+      "fieldname": "quality_code",
+      "fieldtype": "Link",
+      "label": "Quality Code",
+      "options": "PM Quality",
+      "read_only": 1
+     },
+     {
+      "fetch_from": "batch.quality_name",
+      "fieldname": "quality_name",
+      "fieldtype": "Data",
+      "label": "Quality Name",
+      "read_only": 1
+     }
+    ],
+    "is_submittable": 1,
+    "modified": "2021-03-30 15:30:25.588993",
+    "modified_by": "Administrator",
+    "module": "MJT",
+    "name": "Fabric Ownership Transfer",
+    "owner": "Administrator",
+    "permissions": [
+     {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+     }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1,
+    "sync_on_migrate": 1
+   }

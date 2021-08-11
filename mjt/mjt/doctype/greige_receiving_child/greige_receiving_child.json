@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "creation": "2020-11-06 09:16:46.715713",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "item_name",
+  "uom",
+  "batch_no",
+  "than",
+  "column_break_13",
+  "received_qty",
+  "short_length",
+  "net_meter",
+  "remark"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Item Name"
+  },
+  {
+   "columns": 1,
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "columns": 1,
+   "fieldname": "than",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Than"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Received Qty"
+  },
+  {
+   "columns": 1,
+   "fieldname": "short_length",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Short Length"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "columns": 2,
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Remark"
+  },
+  {
+   "columns": 1,
+   "fieldname": "net_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Net Meter"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-11-06 19:03:41.380667",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Greige Receiving Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "sync_on_migrate": 1
+}

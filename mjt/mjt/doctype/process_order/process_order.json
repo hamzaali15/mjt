@@ -1,0 +1,418 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:-",
+ "creation": "2017-09-22 11:38:51.442354",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "section_break_1",
+  "naming_series",
+  "department",
+  "sale_order",
+  "process_type",
+  "process_name",
+  "is_subcontracting",
+  "allow_process_order",
+  "allow_scrap_rate",
+  "supplier_rate",
+  "column_break_5",
+  "status",
+  "workstation",
+  "base_on",
+  "costing_method",
+  "business_unit",
+  "t_supplier_amt",
+  "amended_from",
+  "warehouses",
+  "src_warehouse",
+  "wip_warehouse",
+  "column_break_12",
+  "fg_warehouse",
+  "scrap_warehouse",
+  "sb_materials",
+  "materials",
+  "sb_finished_products",
+  "finished_products",
+  "map_lot_no",
+  "map_mutli_lot",
+  "sb_scrap",
+  "scrap",
+  "time",
+  "start_dt",
+  "end_dt",
+  "hour_rate",
+  "column_break_24",
+  "operation_hours",
+  "total_operation_cost",
+  "total_additonal_production_cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "PO-",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Manufacturing Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "process_type",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Process Type",
+   "options": "Process Type"
+  },
+  {
+   "fieldname": "process_name",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Process Name",
+   "options": "Process Definition",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Draft\nSubmitted\nMapping\nIn Process\nCompleted\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "workstation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Workstation",
+   "options": "Workstation"
+  },
+  {
+   "fieldname": "costing_method",
+   "fieldtype": "Select",
+   "label": "Costing Method",
+   "options": "\nPhysical measurement\nRelative Sales Value"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Process Order",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "warehouses",
+   "fieldtype": "Section Break",
+   "label": "Warehouses"
+  },
+  {
+   "fieldname": "src_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "wip_warehouse",
+   "fieldtype": "Link",
+   "label": "Work-in-Progress Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fg_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "scrap_warehouse",
+   "fieldtype": "Link",
+   "label": "Scrap Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "sb_materials",
+   "fieldtype": "Section Break",
+   "label": "Materials"
+  },
+  {
+   "columns": 8,
+   "fieldname": "materials",
+   "fieldtype": "Table",
+   "label": "Materials",
+   "options": "Process Order Item"
+  },
+  {
+   "fieldname": "sb_finished_products",
+   "fieldtype": "Section Break",
+   "label": "Finished Products"
+  },
+  {
+   "columns": 8,
+   "fieldname": "finished_products",
+   "fieldtype": "Table",
+   "label": "Finished Products",
+   "options": "Process Order Finish Item"
+  },
+  {
+   "fieldname": "sb_scrap",
+   "fieldtype": "Section Break",
+   "label": "Scrap"
+  },
+  {
+   "columns": 8,
+   "fieldname": "scrap",
+   "fieldtype": "Table",
+   "label": "Scrap",
+   "options": "Process Order Item"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Section Break",
+   "label": "Time"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "start_dt",
+   "fieldtype": "Datetime",
+   "label": "Start Date Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "end_dt",
+   "fieldtype": "Datetime",
+   "label": "End Date Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "operation_hours",
+   "fieldtype": "Float",
+   "label": "Hours of Operation",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "depends_on": "eval: !doc.__islocal && doc.docstatus ==0",
+   "fieldname": "map_lot_no",
+   "fieldtype": "Button",
+   "label": "Map Lot No"
+  },
+  {
+   "fieldname": "sale_order",
+   "fieldtype": "Link",
+   "label": "Sale Order",
+   "options": "Sales Order"
+  },
+  {
+   "bold": 1,
+   "depends_on": "eval: !doc.__islocal && doc.docstatus ==0",
+   "fieldname": "map_mutli_lot",
+   "fieldtype": "Button",
+   "hidden": 1,
+   "label": "Map All Product Single Lot"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "business_unit",
+   "fieldtype": "Link",
+   "label": "Business Unit",
+   "options": "Business Unit"
+  },
+  {
+   "default": "0",
+   "fetch_from": "department.is_subcontracting",
+   "fieldname": "is_subcontracting",
+   "fieldtype": "Check",
+   "label": "Is Subcontracting",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hour_rate",
+   "fieldtype": "Float",
+   "label": "Net Hour Rate",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_operation_cost",
+   "fieldtype": "Float",
+   "label": "Total Operation Cost",
+   "precision": "3",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_process_order",
+   "fieldtype": "Check",
+   "label": "Allow Process Order"
+  },
+  {
+   "fieldname": "base_on",
+   "fieldtype": "Select",
+   "label": "Overhead Costing Method",
+   "options": "\nOperation Cost\nProduction Cost"
+  },
+  {
+   "fieldname": "total_additonal_production_cost",
+   "fieldtype": "Float",
+   "label": "Total Additonal Production Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_scrap_rate",
+   "fieldtype": "Check",
+   "label": "Allow Scrap Rate"
+  },
+  {
+   "depends_on": "eval:doc.is_subcontracting == 1 && doc.allow_scrap_rate == 0",
+   "fieldname": "supplier_rate",
+   "fieldtype": "Currency",
+   "label": "Supplier Rate"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.is_subcontracting == 1 && doc.allow_scrap_rate == 0",
+   "fieldname": "t_supplier_amt",
+   "fieldtype": "Currency",
+   "label": "Total Supplier Rate Amount",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-06-12 13:02:32.402663",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Process Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User mjt",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager MJT",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Manufacturing",
+ "search_fields": "process_name, process_type, status, costing_method",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "process_name",
+ "track_changes": 1,
+ "track_seen": 1
+}

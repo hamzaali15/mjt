@@ -1,0 +1,31 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Textile ",
+   "links": "[\n    {\n\t\t\"description\": \"Greige Setting\",\n        \"label\": \"Greige Setting\",\n        \"name\": \"Greige Setting\",\n        \"type\": \"doctype\",\n        \"onboard\": 1\n\t}, \n\t{\n\t\t\"description\": \"Fabric Ownership Transfer\",\n        \"label\": \"Fabric Ownership Transfer\",\n        \"name\": \"Fabric Ownership Transfer\",\n        \"type\": \"doctype\",\n        \"onboard\": 1\n\t}, \n\t{\n\t\t\"description\": \"Quality\",\n        \"label\": \"Quality\",\n        \"name\": \"Quality\",\n        \"type\": \"doctype\",\n        \"onboard\": 1\n\t},\n    {\n\t\t\"description\": \"Greige Receiving Form\",\n        \"label\": \"Greige Receiving Form\",\n        \"name\": \"Greige Receiving Form\",\n        \"type\": \"doctype\",\n        \"onboard\": 1\n\t},\n\t{\n\t\t\"description\": \"Greige Grading Form\",\n        \"label\": \"Greige Grading Form\",\n        \"name\": \"Greige Grading Form\",\n        \"type\": \"doctype\",\n        \"onboard\": 1\n\t},\n\t{\n\t\t\"description\": \"Greige Mending Form\",\n        \"label\": \"Greige Mending Form\",\n        \"name\": \"Greige Mending Form\",\n        \"type\": \"doctype\",\n        \"onboard\": 1\n\t},\n\t{\n        \"label\": \"Grading Summary Report\",\n        \"name\": \"Grading Summary Report\",\n        \"doctype\": \"Greige Grading Form\",\n        \"is_query_report\": true,\n        \"type\": \"report\"\n\t}\n]\n  "
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-11-05 10:01:44.968819",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends": "Stock",
+ "extends_another_page": 1,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "stock_textile",
+ "modified": "2020-12-15 17:51:48.906358",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "stock_textile",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [],
+ "sync_on_migrate": 1
+}

@@ -1,0 +1,131 @@
+{
+ "actions": [],
+ "creation": "2020-11-06 14:14:12.671681",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "item_name",
+  "batch_no",
+  "grading_meter",
+  "fabric_meter",
+  "column_break_13",
+  "process_meter",
+  "remaining_meter",
+  "mending_meter",
+  "rejection_meter",
+  "net_mending_meter",
+  "date",
+  "purchase_receipt_ref"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Read Only",
+   "label": "Item Name"
+  },
+  {
+   "columns": 1,
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "grading_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Grading Meter",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "fabric_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Grading Shortage Meter ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "process_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Process Meter",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "remaining_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Available for Mending",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "mending_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Mending Meter"
+  },
+  {
+   "columns": 1,
+   "fieldname": "rejection_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Rejection Meter"
+  },
+  {
+   "columns": 1,
+   "fieldname": "net_mending_meter",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Net Mending Meter",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fieldname": "purchase_receipt_ref",
+   "fieldtype": "Read Only",
+   "label": "Purchase Receipt Ref"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-12-09 11:36:28.423211",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Greige Mending Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "sync_on_migrate": 1
+}

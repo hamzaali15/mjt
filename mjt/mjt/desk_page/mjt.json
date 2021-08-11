@@ -1,0 +1,46 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Production",
+   "links": "[\n    {\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Process Order\",\n\t\t\"description\": \"Process Manufacturing Order.\"\n\t},\n\t{\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Stock Entry\",\n\t\t\"description\": \"Record item movement.\"\n\t},\n\t{\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Material Request\",\n\t\t\"description\": \"Requests for items.\"\n\t}\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Process Manufacturing",
+   "links": "[\n\t{\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Process Definition\",\n\t\t\"description\": \"Process Definition.\"\n\t},\n\t{\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Process Type\",\n\t\t\"description\": \"Process Type.\"\n\t},\n    {\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Manufacturing Department\",\n\t\t\"description\": \"Manufacturing Department\"\n\t},\n    {\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Item\",\n\t\t\"description\": \"All Products or Services.\"\n\t},\n    {\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Batch\",\n\t\t\"description\": \"Batch (lot) of an Item.\"\n\t},\n\t{\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Design\",\n\t\t\"description\": \"Design\"\n\t}\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Gate Pass",
+   "links": "[\n    {\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Gate Pass\",\n\t\t\"description\": \"Gate Pass\",\n\t\t\"onboard\": 1\n\t},\n\t{\n\t\t\"type\": \"doctype\",\n\t\t\"name\": \"Gate Pass Type\",\n\t\t\"description\": \"Gate Pass Type\",\n\t\t\"onboard\": 1\n\t}\n]"
+  },
+  {
+   "hidden": 0,
+   "label": "Reports",
+   "links": "[\n    {\n        \"dependencies\": [\n            \"Item\"\n        ],\n        \"doctype\": \"Stock Ledger Entry\",\n        \"is_query_report\": true,\n        \"label\": \"Greige Stock Ledger\",\n        \"name\": \"Greige Stock Ledger\",\n        \"onboard\": 1,\n        \"type\": \"report\"\n    },\n    {\n        \"dependencies\": [\n            \"Item\"\n        ],\n        \"doctype\": \"Stock Ledger Entry\",\n        \"is_query_report\": true,\n        \"label\": \"Greige Batch-Wise Balance History\",\n        \"name\": \"Greige Batch-Wise Balance History\",\n        \"onboard\": 1,\n        \"type\": \"report\"\n    },\n    \n\t{\n\t    \"dependencies\": [\n            \"Item\"\n        ],\n\t\t\"doctype\": \"Stock Ledger Entry\",\n\t\t\"is_query_report\": true,\n\t\t\"label\": \"Greige Design-Wise Balance History\",\n\t\t\"name\": \"Greige Design-Wise Balance History\",\n\t\t\"onboard\": 1,\n\t\t\"type\": \"report\"\n\t},\n    {\n       \n        \"doctype\": \"Process Order\",\n        \"is_query_report\": true,\n        \"label\": \"LOT-Wise Production Summary\",\n        \"name\": \"LOT-Wise Production Summary\",\n        \"onboard\": 1,\n        \"type\": \"report\"\n    }\n]\n \n"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-11-17 20:26:21.005602",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Process Manufacturing",
+ "modified": "2021-02-23 23:05:12.793703",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "MJT",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [],
+ "sync_on_migrate": 1
+}

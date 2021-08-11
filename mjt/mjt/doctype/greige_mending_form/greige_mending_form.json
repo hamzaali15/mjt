@@ -1,0 +1,370 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2020-11-05 13:13:43.292896",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "greige_grading_form",
+  "batch_no",
+  "customer_code",
+  "customer_name",
+  "company",
+  "warehouse",
+  "business_unit",
+  "column_break_6",
+  "naming_series",
+  "date",
+  "current_time",
+  "edit_date",
+  "quality_name",
+  "quality_code",
+  "rejected_warehouse",
+  "labor_charges_section",
+  "grading_labor_charges",
+  "column_break_17",
+  "manding_labor_charges",
+  "section_break_10",
+  "item",
+  "item_name",
+  "add_entry",
+  "edit_entry",
+  "column_break_13",
+  "line_no",
+  "mending_meter",
+  "rejection_meter",
+  "section_break_20",
+  "greige_mending",
+  "summery_section",
+  "total_grading_meter",
+  "total_fabric_meter",
+  "total_process_meter",
+  "total_remaining_meter",
+  "column_break_26",
+  "total_mending_meter",
+  "total_rejection_meter",
+  "total_net_mending_meter",
+  "remarks_section",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Name",
+   "options": "GMF.####",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "greige_grading_form.customer_code",
+   "fieldname": "customer_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "greige_grading_form.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Read Only",
+   "label": "Customer Name"
+  },
+  {
+   "fetch_from": "greige_grading_form.quality_code",
+   "fieldname": "quality_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Quality Code",
+   "options": "PM Quality",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "greige_grading_form.quality_name",
+   "fieldname": "quality_name",
+   "fieldtype": "Read Only",
+   "in_standard_filter": 1,
+   "label": "Quality Name"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_time",
+   "fieldtype": "Time",
+   "label": "Current Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.docstatus ==1",
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "greige_grading_form.item",
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Item",
+   "no_copy": 1,
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "greige_grading_form.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Read Only",
+   "label": "Item Name",
+   "no_copy": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "greige_grading_form.batch_no",
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Lot No",
+   "no_copy": 1,
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.docstatus ==1",
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Greige Mending Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "greige_grading_form",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Batch Number / Greige Grading",
+   "no_copy": 1,
+   "options": "Greige Grading Form",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "add_entry",
+   "fieldtype": "Button",
+   "label": "Add Entry"
+  },
+  {
+   "allow_on_submit": 1,
+   "columns": 11,
+   "fieldname": "greige_mending",
+   "fieldtype": "Table",
+   "label": "Greige Mending",
+   "options": "Greige Mending Child",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "mending_meter",
+   "fieldtype": "Float",
+   "label": "Mending Meter"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "rejection_meter",
+   "fieldtype": "Float",
+   "label": "Rejection Meter"
+  },
+  {
+   "depends_on": "eval:doc.docstatus ==1",
+   "fieldname": "summery_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "greige_grading_form.total_fabric_meter",
+   "fieldname": "total_fabric_meter",
+   "fieldtype": "Float",
+   "label": "Total Grading Shortage Meter",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_process_meter",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Total Process Meter",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_remaining_meter",
+   "fieldtype": "Float",
+   "label": "Total Remaining Meter",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_mending_meter",
+   "fieldtype": "Float",
+   "label": "Total Mending Meter",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_rejection_meter",
+   "fieldtype": "Float",
+   "label": "Total Rejection Meter",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_net_mending_meter",
+   "fieldtype": "Float",
+   "label": "Total Net Mending Meter",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rejected_warehouse",
+   "fieldtype": "Link",
+   "label": "Rejected Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fetch_from": "greige_grading_form.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Comapny",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Accepted Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "greige_grading_form.total_grading_meter",
+   "fieldname": "total_grading_meter",
+   "fieldtype": "Float",
+   "label": "Total Grading Meter",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "edit_entry",
+   "fieldtype": "Button",
+   "label": "Edit Entry"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "line_no",
+   "fieldtype": "Int",
+   "label": "Line No"
+  },
+  {
+   "default": "1",
+   "fieldname": "edit_date",
+   "fieldtype": "Check",
+   "label": "Edit posting date and time",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "labor_charges_section",
+   "fieldtype": "Section Break",
+   "label": "Labor charges"
+  },
+  {
+   "fetch_from": "greige_grading_form.grading_labor_charges",
+   "fieldname": "grading_labor_charges",
+   "fieldtype": "Currency",
+   "label": "Grading Labor Charges",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manding_labor_charges",
+   "fieldtype": "Currency",
+   "label": "Manding Labor Charges"
+  },
+  {
+   "fieldname": "business_unit",
+   "fieldtype": "Link",
+   "label": "Business Unit",
+   "options": "Business Unit"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-04-24 13:52:15.983980",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Greige Mending Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

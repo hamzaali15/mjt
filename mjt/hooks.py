@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from . import __version__ as app_version
 
 app_name = "mjt"
@@ -12,6 +14,8 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
+fixtures = [{"dt":"Custom Field", "filters": [["fieldname", "in", ("process_order", "department")]]}]
+
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mjt/css/mjt.css"
 # app_include_js = "/assets/mjt/js/mjt.js"
@@ -20,22 +24,67 @@ app_license = "MIT"
 # web_include_css = "/assets/mjt/css/mjt.css"
 # web_include_js = "/assets/mjt/js/mjt.js"
 
-# include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "mjt/public/scss/website"
-
-# include js, css files in header of web form
-# webform_include_js = {"doctype": "public/js/doctype.js"}
-# webform_include_css = {"doctype": "public/css/doctype.css"}
+doc_events = {
+    "Stock Entry": {
+        "on_submit": [
+                "mjt.mjt.doctype.process_order.process_order.manage_se_changes",
+                "mjt.mjt.doctype.process_order_ledger.process_order_ledger.make_process_order_ledger"
+            ],
+        "on_cancel": "mjt.mjt.doctype.process_order.process_order.manage_se_changes",
+        "before_insert": "mjt.mjt.custom_stock_ledger_entry.update_finish_rate",
+        "before_save": "mjt.mjt.custom_stock_ledger_entry.update_finish_rate",
+        "validate": "mjt.mjt.custom_stock_ledger_entry.validate_stock_ent_design_qty"
+    },
+    "Stock Ledger Entry": {
+        "after_insert": "mjt.mjt.custom_stock_ledger_entry.update_design"
+    },
+    "Sales Invoice": {
+        "before_submit": "mjt.mjt.custom_stock_ledger_entry.validate_design_no",
+        "validate": "mjt.mjt.custom_stock_ledger_entry.validate_sale_inv_design_qty"
+    },
+    "Purchase Invoice": {
+        "before_submit": "mjt.mjt.custom_stock_ledger_entry.validate_design_no"
+    },
+    "Delivery Note": {
+        "before_submit": "mjt.mjt.custom_stock_ledger_entry.validate_design_no",
+        "validate": "mjt.mjt.custom_stock_ledger_entry.validate_delivery_note_design_qty"
+    },
+    "Purchase Receipt": {
+        "before_submit": ["mjt.mjt.custom_stock_ledger_entry.validate_design_no",
+                            "mjt.mjt.purchase_receipt.swap_supplied_data"
+                        ],
+        "before_save": "mjt.mjt.custom_stock_ledger_entry.fill_design_no",
+        "on_submit": [
+                    "mjt.mjt.purchase_receipt.change_process_order_status",
+                    # "mjt.mjt.purchase_receipt.make_raw_material_dl_entry",
+                    "mjt.mjt.doctype.process_order_ledger.process_order_ledger.make_process_order_ledger"
+                    ]
+    },
+    "Batch": {
+        "before_save" :"mjt.mjt.custom_batch.design_name"
+    },
+    "Workstation": {
+        "before_save": "mjt.mjt.util.set_workstation_net_rate"
+    },
+    "Design Receiving and Approval": {
+        "validate": "mjt.mjt.doctype.design_receiving_and_approval.design_receiving_and_approval.validate"
+    },
+}
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
+doctype_js = {
+        "Stock Entry": "public/js/stock_entry.js",
+        #"Sales Invoice": "public/js/sales_invoice.js",
+        "Purchase Invoice": "public/js/purchase_invoice.js",
+        "Delivery Note": "public/js/delivery_note.js"
+    }
 # doctype_js = {"doctype" : "public/js/doctype.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
 # Home Pages
 # ----------
 
@@ -46,6 +95,9 @@ app_license = "MIT"
 # role_home_page = {
 #	"Role": "home_page"
 # }
+
+# Website user home page (by function)
+# get_website_user_home_page = "mjt.utils.get_home_page"
 
 # Generators
 # ----------
@@ -77,14 +129,6 @@ app_license = "MIT"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
-# DocType Class
-# ---------------
-# Override standard doctype classes
-
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
-
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -100,23 +144,9 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"mjt.tasks.all"
-# 	],
-# 	"daily": [
-# 		"mjt.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"mjt.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"mjt.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"mjt.tasks.monthly"
-# 	]
-# }
+scheduler_events = {
+    "hourly": ["mjt.mjt.doctype.process_order_ledger.process_order_ledger.make_entry_schedular"]
+}
 
 # Testing
 # -------
@@ -125,6 +155,11 @@ app_license = "MIT"
 
 # Overriding Methods
 # ------------------------------
+
+override_whitelisted_methods = {
+	"erpnext.stock.doctype.batch.batch.split_batch": "mjt.mjt.custom_batch.split_batch",
+    "erpnext.stock.doctype.stock_entry.stock_entry_utils.make_stock_entry": "mjt.mjt.custom_batch.make_stock_entry"
+}
 #
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "mjt.event.get_events"
@@ -137,39 +172,15 @@ app_license = "MIT"
 # 	"Task": "mjt.task.get_dashboard_data"
 # }
 
-# exempt linked doctypes from being automatically cancelled
-#
-# auto_cancel_exempted_doctypes = ["Auto Repeat"]
+override_doctype_class = {
+    'Purchase Receipt': 'mjt.override_purchase_receipt.OverridePurchaseReceipt',
+    'Repost Item Valuation': 'mjt.override_item_repost_valuation.OverrideRepostItemValuation'
+}
 
-
-# User Data Protection
-# --------------------
-
-user_data_fields = [
-	{
-		"doctype": "{doctype_1}",
-		"filter_by": "{filter_by}",
-		"redact_fields": ["{field_1}", "{field_2}"],
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_2}",
-		"filter_by": "{filter_by}",
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_3}",
-		"strict": False,
-	},
-	{
-		"doctype": "{doctype_4}"
-	}
-]
-
-# Authentication and authorization
-# --------------------------------
-
-# auth_hooks = [
-# 	"mjt.auth.validate"
-# ]
-
+jenv = {
+    "methods": [
+        "update_print_no:mjt.mjt.custom_count_print.update_print_no",
+        "get_batch_fabric_qty:mjt.mjt.custom_jinja_methods.get_batch_fabric_qty",
+        "get_finish_product:mjt.mjt.custom_jinja_methods.get_finish_product"
+    ]
+}

@@ -1,0 +1,231 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2021-06-29 12:34:10.047107",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer",
+  "fabric",
+  "design_no",
+  "column_break_5",
+  "date",
+  "category",
+  "printed_by",
+  "process_type",
+  "section_break_12",
+  "amended_from",
+  "design_strike_off",
+  "section_break_13",
+  "approval_status",
+  "column_break_15",
+  "approval_date",
+  "production_and_balance_section",
+  "sales_order",
+  "po_date",
+  "license",
+  "column_break_18",
+  "ordered_qty",
+  "in_warehouse",
+  "production_pcs",
+  "sales_return",
+  "balance_pcs",
+  "section_break_24",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "default": "MJT-DA-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "MJT-DA-",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Design Receiving and Approval",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "fabric",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fabric",
+   "options": "PM Quality",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "design_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Design No",
+   "options": "Design",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Item"
+  },
+  {
+   "fieldname": "printed_by",
+   "fieldtype": "Data",
+   "label": "Printed By"
+  },
+  {
+   "fieldname": "process_type",
+   "fieldtype": "Select",
+   "label": "Process Type",
+   "options": "\nDigital Print\nDyeing"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "design_strike_off",
+   "fieldtype": "Table",
+   "label": "Design Strike Off",
+   "options": "Design Approval Strike Off"
+  },
+  {
+   "fieldname": "production_and_balance_section",
+   "fieldtype": "Section Break",
+   "label": "Production and Balance"
+  },
+  {
+   "fetch_from": "sales_order.transaction_date",
+   "fieldname": "po_date",
+   "fieldtype": "Date",
+   "label": "PO Date"
+  },
+  {
+   "fieldname": "license",
+   "fieldtype": "Data",
+   "label": "License"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ordered_qty",
+   "fieldtype": "Float",
+   "label": "Ordered Qty"
+  },
+  {
+   "fieldname": "in_warehouse",
+   "fieldtype": "Float",
+   "label": "In Warehouse"
+  },
+  {
+   "fieldname": "production_pcs",
+   "fieldtype": "Float",
+   "label": "Production Pcs"
+  },
+  {
+   "fieldname": "sales_return",
+   "fieldtype": "Float",
+   "label": "Sales Return"
+  },
+  {
+   "fieldname": "balance_pcs",
+   "fieldtype": "Float",
+   "label": "Balance Pcs"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "PO No",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "approval_status",
+   "fieldtype": "Check",
+   "label": "Approval Status"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-06-30 21:32:38.360541",
+ "modified_by": "Administrator",
+ "module": "MJT",
+ "name": "Design Receiving and Approval",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

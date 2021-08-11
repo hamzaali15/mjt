@@ -1,0 +1,55 @@
+{
+    "creation": "2017-09-22 11:24:51.617705",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+     "item",
+     "item_name",
+     "row_no",
+     "rate"
+    ],
+    "fields": [
+     {
+      "columns": 3,
+      "fieldname": "item",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Item",
+      "options": "Item",
+      "reqd": 1
+     },
+     {
+      "fieldname": "item_name",
+      "fieldtype": "Data",
+      "label": "Item Name",
+      "options": "item.item_name"
+     },
+     {
+      "columns": 2,
+      "fieldname": "row_no",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Map Row No"
+     },
+     {
+      "columns": 2,
+      "fieldname": "rate",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Rate"
+     }
+    ],
+    "istable": 1,
+    "modified": "2021-04-06 16:50:48.505863",
+    "modified_by": "Administrator",
+    "module": "MJT",
+    "name": "Process Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 1,
+    "restrict_to_domain": "Manufacturing",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+   }
